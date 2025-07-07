@@ -1,0 +1,4 @@
+db_host: your_actual_host
+db_name: your_actual_database
+db_user: your_actual_username
+db_password: your_actual_password
