@@ -17,7 +17,7 @@ def plot_speed_histograms():
         EXTRACT(HOUR FROM t_arrival AT TIME ZONE 'America/New_York') AS hour,
         COUNT(*) AS num_segments,
         AVG(speed) AS avg_speed
-        FROM segments_with_speed
+        FROM segments_with_speed_32118
         WHERE t_arrival >= '2025-07-20 00:00:00 America/New_York'
           AND t_arrival <  '2025-07-22 00:00:00 America/New_York'
         GROUP BY weekday, hour

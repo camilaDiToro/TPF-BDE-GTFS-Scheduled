@@ -15,11 +15,11 @@ def load_geom_boundary(engine):
 def load_segments_from_postgis(engine):
     query = """
     SELECT
-        geometry,
+        ST_Transform(geometry, 4326) AS geometry,
         from_stop_name,
         to_stop_name,
         AVG(speed) AS avg_speed
-    FROM segments_with_speed
+    FROM segments_with_speed_32118
     GROUP BY from_stop_id, to_stop_id, geometry, from_stop_name, to_stop_name;
     """
     return gpd.read_postgis(query, engine, geom_col='geometry')
