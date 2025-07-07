@@ -7,7 +7,7 @@ from db_utils.db_connection import get_engine
 def load_grid_100m(engine):
     query = """
     SELECT grid_id, notrips, routes, ST_Transform(geom, 4326) AS geometry
-    FROM brooklyn.grid_500m_32118;
+    FROM brooklyn.grid_100m_32118;
     """
     return gpd.read_postgis(query, engine, geom_col='geometry')
 
@@ -19,7 +19,7 @@ def load_brooklyn_boundary(engine):
     """
     return gpd.read_postgis(query, engine, geom_col='geometry')
 
-def visualize_grid(grid_gdf, brooklyn_boundary, cutoff=500):
+def visualize_grid(grid_gdf, brooklyn_boundary, cutoff=100):
     transport_map = f.Map(location=[40.65, -73.95], tiles='CartoDB positron', zoom_start=11)
 
     # Colormap for notrips
@@ -87,5 +87,5 @@ if __name__ == "__main__":
     grid_gdf = load_grid_100m(engine)
     brooklyn_boundary = load_brooklyn_boundary(engine)
     grid_map = visualize_grid(grid_gdf, brooklyn_boundary)
-    grid_map.save("outputs/grid_notrips_500m.html")
+    grid_map.save("outputs/grid_notrips_100m.html")
     print("Mapa guardado como 'grid_notrips_100m.html'")
