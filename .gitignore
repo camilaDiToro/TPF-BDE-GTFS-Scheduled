@@ -1,0 +1,8 @@
+node_modules
+package-lock.json
+package.json
+GTFS_SCHEDULED_ROOT_FOLDER/gtfs*
+.venv
+config.yaml
+.idea/
+*/outputs/*
