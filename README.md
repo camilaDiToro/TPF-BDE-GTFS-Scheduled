@@ -83,5 +83,6 @@ The `/outputs/` folders in each section store visualizations (maps, layers) gene
 
 > 📖 **Reading the report alongside this repository is recommended** for a full understanding of the analyses and methodology.
 
+>⚠️ **Note**: The `outputs/` folders used to store generated visualizations (maps, layers, etc.) are ignored by Git and **do not appear after cloning the repository**. If they are missing, **please create them manually** inside each numbered folder before running the scripts.
 
 ---
