@@ -30,7 +30,7 @@ if __name__ == "__main__":
         print(f"Saving {len(segments_gdf)} rows from {filename}")
         save_to_postgis(
             segments_gdf,
-            table_name="speed_segments",
+            table_name="segments",
             schema=schema[i],
             if_exists='replace'
         )

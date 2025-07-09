@@ -6,7 +6,7 @@ from db_utils.db_connection import get_engine
 
 def load_geom_boundary(engine):
     query = """
-    SELECT geom as geometry
+    SELECT geom_4326 as geometry
     FROM public.ny_adm
     WHERE boroname = 'Brooklyn' OR boroname = 'Queens';
     """
@@ -15,7 +15,7 @@ def load_geom_boundary(engine):
 def load_segments_from_postgis(engine):
     query = """
     SELECT
-        ST_Transform(geometry, 4326) AS geometry,
+        geometry,
         from_stop_name,
         to_stop_name,
         AVG(speed) AS avg_speed
